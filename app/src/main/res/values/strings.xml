@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Quizholic</string>
+    <string-array name="cnames">
+        <item>CSE001</item>
+        <item>CSE002</item>
+        <item>CSE003</item>
+        <item>CSE004</item>
+        <item>CSE0056</item>
+    </string-array>
+</resources>
