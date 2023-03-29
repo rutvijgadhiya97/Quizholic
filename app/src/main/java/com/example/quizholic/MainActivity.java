@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case "Professor":
             case "TA":
-                Email=UserId+"@uta.edu";
+                Email=UserId+"@gmail.com";
                 break;
         }
         mAuth=FirebaseAuth.getInstance();
@@ -132,11 +132,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     User userlist = snapshot.getValue(User.class);
-                                    switch (userlist.Role) {
+                                    switch (role) {
                                         case "Student":
+                                            Intent intent1 = new Intent(getApplicationContext(), StudentDashboard.class);
+                                            intent1.putExtra("User", userlist);
+                                            startActivity(intent1);
                                             break;
                                         case "Professor":
-                                            Intent intent = new Intent(getApplicationContext(), RegisterUser.class);
+                                            Intent intent = new Intent(getApplicationContext(), ProfessorOrTADashboard.class);
                                             intent.putExtra("User", userlist);
                                             startActivity(intent);
                                             break;

@@ -12,6 +12,18 @@
         android:theme="@style/Theme.Quizholic"
         tools:targetApi="31">
         <activity
+            android:name=".NotifyUser_Student"
+            android:exported="false" />
+        <activity
+            android:name=".NotifyUser"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateProfessorCourses"
+            android:exported="false" />
+        <activity
+            android:name=".ApproveStudents"
+            android:exported="false" />
+        <activity
             android:name=".ProfessorOrTADashboard"
             android:exported="false" />
         <activity

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ApproveStudents">
+    <LinearLayout
+        android:id="@+id/main_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="-170dp">
+    <TextView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Approval"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        ></TextView>
+        <TextView
+            android:id="@+id/Selectlabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="20dp"
+            android:text="Select Course:"
+
+            android:textSize="20dp"
+
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            ></TextView>
+
+        <Spinner
+            android:id="@+id/spinner_CourseSelect"
+            style="@style/spinner_style"
+            android:layout_width="380dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="20dp"
+
+            android:spinnerMode="dropdown"
+            android:tooltipText="Select Course"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+        android:id="@+id/textView"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@android:drawable/editbox_background"
+        android:drawableRight="@android:drawable/arrow_down_float"
+        android:drawablePadding="16dp"
+        android:ems="20"
+        android:hint="Approve Students"
+        android:padding="12dp"
+        android:textSize="24sp"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

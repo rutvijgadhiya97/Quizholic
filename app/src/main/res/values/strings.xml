@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Quizholic</string>
+    <string name="CourseId" />
+    <string name="Date" />
+    <string name="SubjectLine" />
+    <string name="AnnouncmentText" />
+    <string name="Announce" />
     <string-array name="cnames">
         <item>CSE001</item>
         <item>CSE002</item>

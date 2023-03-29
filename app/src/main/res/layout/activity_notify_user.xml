@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotifyUser">
+    <LinearLayout
+        android:id="@+id/Announcment_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="-170dp">
+        <TextView
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Anouncment"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            ></TextView>
+        <TextView
+            android:id="@+id/Selectlabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="20dp"
+            android:text="Select Course:"
+
+            android:textSize="20dp"
+
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            ></TextView>
+
+        <Spinner
+            android:id="@+id/spinnercourse"
+            style="@style/spinner_style"
+            android:layout_width="380dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="20dp"
+
+            android:spinnerMode="dropdown"
+            android:tooltipText="Select Course"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/subject"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@android:drawable/editbox_background"
+            android:drawablePadding="16dp"
+            android:ems="20"
+            android:hint="subject"
+            android:padding="12dp"
+            android:textSize="24sp"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
+
+        <EditText
+            android:id="@+id/textView_announce"
+            android:layout_width="380dp"
+            android:layout_height="350dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:inputType="textMultiLine"
+            android:background="@android:drawable/editbox_background"
+            android:drawablePadding="16dp"
+            android:ems="20"
+            android:hint="Type the Announcment"
+            android:padding="12dp"
+            android:textSize="24sp"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
+        <Button
+            android:id="@+id/share"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="#0ED6B9"
+            android:text="Share"
+            android:textColor="#ffffff"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/textView_announce"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            ></Button>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

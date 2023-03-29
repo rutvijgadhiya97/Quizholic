@@ -30,7 +30,7 @@ import java.util.Collections;
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
     private TextView banner,registerUser;
     private EditText lName,email,password,major,cpassword,userId;
-    private EditText fName;
+    public EditText fName,phonenumber,UTAId;
     private ProgressBar pgrBar;
     private RadioGroup radioGroup;
     private RadioButton radioButton;
@@ -62,6 +62,8 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         password=(EditText) findViewById(R.id.password);
         cpassword=(EditText) findViewById(R.id.confirmpassword);
         radioGroup=(RadioGroup) findViewById(R.id.radio_group);
+        phonenumber=(EditText) findViewById(R.id.PhoneNumber);
+        UTAId=(EditText) findViewById(R.id.UTAID);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -78,6 +80,16 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         selectedLanguage = new boolean[courseslst.length];
         ArrayList<Integer> courseList = new ArrayList<>();
         CourseInfo=new ArrayList<>();
+        SelectCourse(courseslst, courseList);
+
+
+
+        pgrBar=(ProgressBar) findViewById(R.id.progressBar);
+
+
+    }
+
+    private void SelectCourse(String[] courseslst, ArrayList<Integer> courseList) {
         textView.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -116,7 +128,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                         for (int j = 0; j < courseList.size(); j++) {
                             // concat array value
                             stringBuilder.append(courseslst[courseList.get(j)]);
-                            Course cinfo=new Course(courseslst[courseList.get(j)],false);
+                            Course cinfo=new Course(courseslst[courseList.get(j)],false,fName.getText().toString(),userId.getText().toString());
                             CourseInfo.add(cinfo);
                             // check condition
                             if (j != courseList.size() - 1) {
@@ -158,11 +170,6 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-
-
-        pgrBar=(ProgressBar) findViewById(R.id.progressBar);
-
-
     }
 
     @Override
@@ -173,6 +180,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.RegisterUser:
                 registerUser();
+                startActivity(new Intent(this, MainActivity.class));
                 //startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.signIn:
@@ -191,6 +199,8 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         String pass=password.getText().toString().trim();
         String confirmPassword=cpassword.getText().toString().trim();
         String role=radioButton.getText().toString().trim();
+        String phoneNumber=phonenumber.getText().toString().trim();
+        String utaID=UTAId.getText().toString().trim();
         String CourseName="CSE6324";
         if(fNamee.isEmpty())
         {
@@ -219,6 +229,18 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         if(majorCourse.isEmpty())
         {
             major.setError("Marjor Course is Required");
+            major.requestFocus();
+            return;
+        }
+        if(phoneNumber.isEmpty())
+        {
+            major.setError("phone number is Required");
+            major.requestFocus();
+            return;
+        }
+        if(utaID.isEmpty())
+        {
+            major.setError("UTA Id is Required");
             major.requestFocus();
             return;
         }
@@ -265,7 +287,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                         if(task.isSuccessful())
                         {
 
-                            User user1=new User(fNamee,lNamee,majorCourse,emailid,pass,role,UserID,CourseInfo,Selectedcourse);
+                            User user1=new User(fNamee,lNamee,majorCourse,emailid,pass,role,UserID,CourseInfo,Selectedcourse, new ArrayList<>(),phoneNumber,utaID);
 
 
                             FirebaseDatabase.getInstance().getReference("Users")
@@ -284,21 +306,23 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                                             }
                                         }
                                     });
-                            for(int i=0;i<CourseInfo.size();i++) {
-                                FirebaseDatabase.getInstance().getReference(CourseInfo.get(i).CoursesId)
-                                        .child(UserID)
-                                        .setValue(CourseInfo.get(i)).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    Toast.makeText(RegisterUser.this, "User has been registerd sucessfully.", Toast.LENGTH_LONG).show();
-                                                    pgrBar.setVisibility(View.GONE);
-                                                } else {
-                                                    Toast.makeText(RegisterUser.this, "Failed to register! Try again!.", Toast.LENGTH_LONG).show();
-                                                    pgrBar.setVisibility(View.GONE);
+                            if(role.equals("Student")) {
+                                for (int i = 0; i < CourseInfo.size(); i++) {
+                                    FirebaseDatabase.getInstance().getReference(CourseInfo.get(i).CoursesId)
+                                            .child(UserID)
+                                            .setValue(CourseInfo.get(i)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(RegisterUser.this, "User has been registerd sucessfully.", Toast.LENGTH_LONG).show();
+                                                        pgrBar.setVisibility(View.GONE);
+                                                    } else {
+                                                        Toast.makeText(RegisterUser.this, "Failed to register! Try again!.", Toast.LENGTH_LONG).show();
+                                                        pgrBar.setVisibility(View.GONE);
+                                                    }
                                                 }
-                                            }
-                                        });
+                                            });
+                                }
                             }
 
                         }
