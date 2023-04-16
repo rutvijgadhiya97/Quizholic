@@ -1,75 +1,44 @@
 package com.example.quizholic;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Patterns;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
-
-import android.os.Bundle;
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
-
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.TimePicker;
+import android.widget.Toast;
+
 
 public class Publish_Quiz extends AppCompatActivity implements View.OnClickListener {
 
     private TextView banner,registerUser;
-    private EditText lName,email,password,major,cpassword,userId;
     public EditText quiztitle,question,option1,option2,option3,option4,correctans;
-    private ProgressBar pgrBar;
-    private RadioGroup radioGroup;
-    private RadioButton radioButton;
-    private FirebaseAuth mAuth;
     TextView textView;
     boolean[] selectedLanguage;
     public ArrayList<Course> CourseInfo;
     public User userinfo=new User();
     public Spinner courselst;
-    private Button share;
-    Button btnDatePicker, btnTimePicker;
+    private Button btnAdd, view;
+    public String selectedcourse=null;
+    Button btnDatePicker;
     EditText txtDate, txtTime;
-    private int mYear, mMonth, mDay, mHour, mMinute;
-    Button btnreg;
+    private int mYear, mMonth, mDay;
+
+    public ArrayList<Questions> QuestionList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish_quiz);
         btnDatePicker=(Button)findViewById(R.id.btn_date);
+        btnAdd=(Button)findViewById(R.id.add);
         txtDate=(EditText)findViewById(R.id.date);
         btnDatePicker.setOnClickListener(this);
         quiztitle=(EditText)findViewById(R.id.quiztitle);
@@ -103,6 +72,40 @@ public class Publish_Quiz extends AppCompatActivity implements View.OnClickListe
                         }
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
+        }
+        if(view == btnAdd) {
+            String Quiztitle = quiztitle.getText().toString().trim();
+            String Question = question.getText().toString().trim();
+            String Option1 = option1.getText().toString().trim();
+            String Option2 = option2.getText().toString().trim();
+            String Option3 = option3.getText().toString().trim();
+            String Option4 = option4.getText().toString().trim();
+            String Answer = correctans.getText().toString().trim();
+
+            // validate user input
+            if (TextUtils.isEmpty(Question) || TextUtils.isEmpty(Option1)
+                    || TextUtils.isEmpty(Option2) || TextUtils.isEmpty(Quiztitle)
+                    || TextUtils.isEmpty(Answer)) {
+                Toast.makeText(getApplicationContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            } else {
+                // create a new Question object
+                Questions newQuestion = new Questions(Quiztitle, Question, Option1, Option2, Option3, Option4, Answer);
+
+                // save the new question to the database or wherever you store your questions
+
+                // display a success message
+                Toast.makeText(getApplicationContext(), "Question added successfully", Toast.LENGTH_SHORT).show();
+
+                // clear the input fields
+                quiztitle.setText("");
+                question.setText("");
+                option1.setText("");
+                option2.setText("");
+                option3.setText("");
+                option4.setText("");
+                correctans.setText("");
+
+            }
         }
     }
     private void SelectCourse() {
