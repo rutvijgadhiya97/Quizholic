@@ -93,7 +93,7 @@ public class Publish_Quiz extends AppCompatActivity implements AdapterView.OnIte
             // validate user input
             if (TextUtils.isEmpty(Question) || TextUtils.isEmpty(Option1)
                     || TextUtils.isEmpty(Option2) || TextUtils.isEmpty(Quiztitle)
-                    || TextUtils.isEmpty(Answer) || TextUtils.isEmpty(date) || sdelectedcourse.isEmpty()) {
+                    || TextUtils.isEmpty(Answer) || TextUtils.isEmpty(date) || selectedcourse.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -147,7 +147,7 @@ public class Publish_Quiz extends AppCompatActivity implements AdapterView.OnIte
         String course = parent.getItemAtPosition(position).toString();
         if(!course.isEmpty())
         {
-             sdelectedcourse = course;
+            selectedcourse = course;
         }
         Toast.makeText(parent.getContext(), "Selected: " + course, Toast.LENGTH_LONG).show();
 

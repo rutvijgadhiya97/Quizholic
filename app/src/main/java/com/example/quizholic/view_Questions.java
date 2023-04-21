@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,6 +25,7 @@ public class view_Questions extends AppCompatActivity implements View.OnClickLis
     TextView Title,ScheduledDate;
     private DatabaseReference userlistReference;
     Button btnPublish;
+    private FirebaseAuth mAuth;
     ArrayList<Questions> Questionslist=new ArrayList<>();
     @SuppressLint("MissingInflatedId")
     @Override
@@ -56,7 +58,9 @@ public class view_Questions extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        FirebaseDatabase.getInstance().getReference(Questionslist.get(0).SelectedCourse+"_questions")
+        mAuth=FirebaseAuth.getInstance();
+        userlistReference = FirebaseDatabase.getInstance().getReference(Questionslist.get(0).SelectedCourse+"_questions");
+        userlistReference
                 .child(Questionslist.get(0).Quiztitle)
                 .setValue(Questionslist).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
