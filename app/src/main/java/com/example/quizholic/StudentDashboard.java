@@ -39,12 +39,12 @@ public class StudentDashboard extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.UpadteCourse:
                 //startActivity(new Intent(this, RegisterUser.class));
-                Intent intent = new Intent(getApplicationContext(), ApproveStudents.class);
+                Intent intent = new Intent(getApplicationContext(), UpdateProfessorCourses.class);
                 intent.putExtra("User", userinfo);
                 startActivity(intent);
                 break;
             case R.id.ViewProgress:
-                Intent intent1 = new Intent(getApplicationContext(), UpdateProfessorCourses.class);
+                Intent intent1 = new Intent(getApplicationContext(), ApproveStudents.class);
                 intent1.putExtra("User", userinfo);
                 startActivity(intent1);
                 break;

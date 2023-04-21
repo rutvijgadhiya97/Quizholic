@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Quizholic"
         tools:targetApi="31">
         <activity
+            android:name=".Student_Select_Course_For_Quiz"
+            android:exported="false" />
+        <activity
+            android:name=".view_Questions"
+            android:exported="false" />
+        <activity
+            android:name=".Publish_Quiz"
+            android:exported="false" />
+        <activity
             android:name=".NotifyUser_Student"
             android:exported="false" />
         <activity

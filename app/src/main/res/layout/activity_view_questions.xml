@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/main_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="-170dp">
+
+    <TextView
+        android:id="@+id/Quiztitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/CourseId"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/dateBtn"
+            android:layout_width="380dp"
+            android:layout_height="100dp"
+
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="-170dp">
+
+            <TextView
+                android:id="@+id/QuizDate"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/CourseId"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/Quiztitle" />
+
+            <Button
+                android:id="@+id/btnPublish"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#0ED6B9"
+                android:text="Publish"
+                android:textColor="#ffffff"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/QuizDate"
+                app:layout_constraintTop_toBottomOf="@+id/QuizDate"></Button>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVQuestions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateBtn"/>
+     </LinearLayout>
+</RelativeLayout>

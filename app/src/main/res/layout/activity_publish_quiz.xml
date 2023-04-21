@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="0dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:text="Select Course:"
 
                 android:textSize="20dp"
@@ -48,12 +48,13 @@
                 app:layout_constraintTop_toTopOf="parent"
 
                 ></TextView>
+
             <Spinner
                 android:id="@+id/spinnercourse"
                 style="@style/spinner_style"
                 android:layout_width="380dp"
                 android:layout_height="61dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
 
                 android:spinnerMode="dropdown"
                 android:tooltipText="Select Course"
@@ -62,7 +63,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.516"
                 app:layout_constraintStart_toStartOf="parent" />
-        <LinearLayout
+
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -95,7 +97,7 @@
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -112,7 +114,7 @@
                 android:layout_height="130dp"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -129,7 +131,7 @@
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -146,7 +148,7 @@
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -163,7 +165,7 @@
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -180,7 +182,7 @@
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -197,7 +199,7 @@
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"

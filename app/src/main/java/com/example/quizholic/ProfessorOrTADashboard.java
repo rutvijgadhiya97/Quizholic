@@ -30,7 +30,9 @@ public class ProfessorOrTADashboard extends AppCompatActivity implements View.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.quizQuestions:
-
+                Intent intent3 = new Intent(getApplicationContext(), Publish_Quiz.class);
+                intent3.putExtra("User", userinfo);
+                startActivity(intent3);
                 break;
             case R.id.ApproveStudents:
                 //startActivity(new Intent(this, RegisterUser.class));
