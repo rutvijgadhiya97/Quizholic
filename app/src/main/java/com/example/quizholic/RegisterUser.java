@@ -180,7 +180,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.RegisterUser:
                 registerUser();
-                startActivity(new Intent(this, MainActivity.class));
+               // startActivity(new Intent(this, MainActivity.class));
                 //startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.signIn:
@@ -191,6 +191,11 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     }
 
     private void registerUser() {
+        if(radioButton==null)
+        {
+            Toast.makeText(RegisterUser.this,"Please select the role.",Toast.LENGTH_LONG).show();
+            return;
+        }
         String fNamee=fName.getText().toString().trim();
         String lNamee=lName.getText().toString().trim();
         String UserID=userId.getText().toString().trim();
@@ -332,5 +337,6 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 });
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
