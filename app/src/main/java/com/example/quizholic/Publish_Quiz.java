@@ -63,6 +63,7 @@ public class Publish_Quiz extends AppCompatActivity implements AdapterView.OnIte
         correctans=(EditText)findViewById(R.id.correctans);
         quizTime=(EditText)findViewById(R.id.quizTime);
         questionPts=(EditText)findViewById(R.id.questionpts);
+        time=(EditText)findViewById(R.id.time);
         SelectCourse();
     }
     @Override
@@ -91,7 +92,7 @@ public class Publish_Quiz extends AppCompatActivity implements AdapterView.OnIte
                     new TimePickerDialog.OnTimeSetListener() {
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                            quizTime.setText(hourOfDay+":"+minute);
+                            time.setText(hourOfDay+":"+minute);
                         }
 
 
