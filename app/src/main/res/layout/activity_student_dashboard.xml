@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StudentDashboard">
-    <LinearLayout
+   <LinearLayout
         android:id="@+id/main_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,11 +13,24 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="162dp"
         tools:layout_editor_absoluteY="-170dp">
-        <TextView
+       <Button
+           android:id="@+id/Logouts"
+           android:layout_width="100dp"
+           android:layout_height="70dp"
+           android:layout_marginTop="24dp"
+           android:backgroundTint="#0ED6B9"
+           android:text="Logout"
+           android:textColor="#ffffff"
+           android:textSize="15dp"
+           android:textStyle="bold"
+           android:layout_marginLeft="270dp"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintRight_toRightOf="parent"></Button>
+
+       <TextView
             android:id="@+id/banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:fontFamily="sans-serif-black"
             android:text="Welcome !"
             android:textAlignment="center"

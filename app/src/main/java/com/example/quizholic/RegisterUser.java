@@ -263,9 +263,11 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         }
         if(pass.length()<6)
         {
-            password.setError("Minimum password length should be 6 characters.");
+            Toast.makeText(RegisterUser.this,"Minimum password length should be 6 characters.",Toast.LENGTH_LONG).show();
             password.requestFocus();
             return;
+            //password.setError("Minimum password length should be 6 characters.");
+            //return;
         }
         if(confirmPassword.isEmpty())
         {
@@ -292,7 +294,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                         if(task.isSuccessful())
                         {
 
-                            User user1=new User(fNamee,lNamee,majorCourse,emailid,pass,role,UserID,CourseInfo,Selectedcourse, new ArrayList<>(),phoneNumber,utaID);
+                            User user1=new User(fNamee,lNamee,majorCourse,emailid,pass,role,UserID,CourseInfo,Selectedcourse, new ArrayList<>(),phoneNumber,utaID,new ArrayList<>());
 
 
                             FirebaseDatabase.getInstance().getReference("Users")

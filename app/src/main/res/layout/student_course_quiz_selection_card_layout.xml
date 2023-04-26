@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/courseCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
@@ -19,10 +18,16 @@
         android:layout_height="wrap_content">
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:gravity="center_horizontal">
 
         <!-- Text View to display Course Name -->
         <TextView
-            android:id="@+id/idCourseName"
+            android:id="@+id/idQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -31,6 +36,18 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/btn_startQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#0ED6B9"
+            android:text="START"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="130dp"
+            ></Button>
+        </LinearLayout>
 
 
 

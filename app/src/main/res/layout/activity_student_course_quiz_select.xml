@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotifyUser_Student">
+    tools:context=".StudentCourseQuizSelect">
     <LinearLayout
         android:id="@+id/activity_quiz"
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-black"
-        android:text="Select Course"
+        android:text="Select Quiz"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -28,8 +28,9 @@
 
         ></TextView>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idStudentAnnouncement"
+        android:id="@+id/idRVQuiz"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,17 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Publish_Quiz">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-127dp">
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-348dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="8dp"
-            android:gravity="center_horizontal">
+            android:padding="8dp">
+
             <TextView
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
@@ -31,13 +34,14 @@
                 app:layout_constraintTop_toTopOf="parent"
 
                 ></TextView>
+
             <TextView
                 android:id="@+id/Selectlabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="0dp"
-                android:layout_marginLeft="10dp"
                 android:text="Select Course:"
 
                 android:textSize="20dp"
@@ -65,39 +69,53 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:gravity="center_horizontal">
-            <EditText
-                android:id="@+id/date"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:text="SCHEDULE  DATE" />
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="8dp">
+                <LinearLayout
+                    android:layout_width="256dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+                <EditText
+                    android:id="@+id/date"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="SCHEDULE  DATE" />
+                <EditText
+                    android:id="@+id/time"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="SCHEDULE  Time" />
+                </LinearLayout>
 
-            <Button
-                android:id="@+id/btn_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/date"
-                android:layout_toRightOf="@+id/date"
-                android:backgroundTint="#0ED6B9"
-                android:text="DATE"
-                android:textColor="#ffffff"
-                android:textSize="15sp"
-                android:layout_marginLeft="10dp"
-               ></Button>
-        </LinearLayout>
+                <Button
+                    android:id="@+id/btn_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/date"
+                    android:layout_toRightOf="@+id/date"
+                    android:backgroundTint="#0ED6B9"
+                    android:text="DATE"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp"></Button>
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/quiztitle"
                 android:layout_width="380dp"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -109,12 +127,49 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
             <EditText
+                android:id="@+id/quizTime"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:drawable/editbox_background"
+                android:drawablePadding="16dp"
+                android:ems="20"
+                android:hint="quiz time(minutes)"
+                android:padding="12dp"
+                android:textSize="24sp"
+                app:layout_constraintHorizontal_bias="0.516"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
+            <EditText
+                android:id="@+id/questionpts"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:drawable/editbox_background"
+                android:drawablePadding="16dp"
+                android:ems="20"
+                android:hint="question points"
+                android:padding="12dp"
+                android:textSize="24sp"
+                app:layout_constraintHorizontal_bias="0.516"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
+
+
+
+            <EditText
                 android:id="@+id/question"
                 android:layout_width="380dp"
                 android:layout_height="130dp"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -125,13 +180,14 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
+
             <EditText
                 android:id="@+id/option1"
                 android:layout_width="380dp"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -142,13 +198,14 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
+
             <EditText
                 android:id="@+id/option2"
                 android:layout_width="380dp"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -159,13 +216,14 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
+
             <EditText
                 android:id="@+id/option3"
                 android:layout_width="380dp"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -176,13 +234,14 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
+
             <EditText
                 android:id="@+id/option4"
                 android:layout_width="380dp"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -193,13 +252,14 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
+
             <EditText
                 android:id="@+id/correctans"
                 android:layout_width="380dp"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@android:drawable/editbox_background"
                 android:drawablePadding="16dp"
                 android:ems="20"
@@ -210,43 +270,44 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_CourseSelect" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:gravity="center_horizontal">
-            <Button
-                android:id="@+id/add"
-                android:layout_width="200dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:backgroundTint="#0ED6B9"
-                android:text="Add"
-                android:textColor="#ffffff"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@+id/textView_announce"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                ></Button>
 
-            <Button
-                android:id="@+id/view"
-                android:layout_width="200dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#0ED6B9"
-                android:text="View"
-                android:textColor="#ffffff"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_announce"></Button>
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <Button
+                    android:id="@+id/add"
+                    android:layout_width="200dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#0ED6B9"
+                    android:text="Add"
+                    android:textColor="#ffffff"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_announce"></Button>
+
+                <Button
+                    android:id="@+id/view"
+                    android:layout_width="200dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#0ED6B9"
+                    android:text="View"
+                    android:textColor="#ffffff"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_announce"></Button>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
