@@ -91,7 +91,7 @@ public class Publish_Quiz extends AppCompatActivity implements AdapterView.OnIte
                     new TimePickerDialog.OnTimeSetListener() {
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
+                            quizTime.setText(hourOfDay+":"+minute);
                         }
 
 
