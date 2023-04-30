@@ -64,6 +64,13 @@ public class Publish_Quiz extends AppCompatActivity implements AdapterView.OnIte
         quizTime=(EditText)findViewById(R.id.quizTime);
         questionPts=(EditText)findViewById(R.id.questionpts);
         time=(EditText)findViewById(R.id.time);
+        if(userinfo.Role.equals("TA"))
+        {
+            time.setVisibility(View.GONE);
+            txtDate.setVisibility(View.GONE);
+            btnDatePicker.setVisibility(View.GONE);
+
+        }
         SelectCourse();
     }
     @Override
@@ -115,6 +122,7 @@ public class Publish_Quiz extends AppCompatActivity implements AdapterView.OnIte
             Intent intent = new Intent(getApplicationContext(), view_Questions.class);
             intent.putExtra("Questions", QuestionList);
             intent.putExtra("User",userinfo);
+            intent.putExtra("prevpage","publishquiz");
             startActivity(intent);
         }
     }

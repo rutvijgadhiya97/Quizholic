@@ -108,6 +108,7 @@ public class StudentCourseQuizAdapter extends RecyclerView.Adapter<StudentCourse
 
                 Intent intent = new Intent(v.getContext(), StudentCourseQuizSelect.class);
                 intent.putExtra("item", user);
+                intent.putExtra("prevpage","quizQuestions");
                 v.getContext().startActivity(intent);
             }
             if(PrevPage.equals("ViewProgress"))
@@ -123,6 +124,21 @@ public class StudentCourseQuizAdapter extends RecyclerView.Adapter<StudentCourse
                 intent.putExtra("item", user);
                 v.getContext().startActivity(intent);
             }
+            if(PrevPage.equals("scheduleQuiz")) {
+                int position = getAdapterPosition();
+
+                // Get the data item for this position
+                String item = listofCoursesSelected.get(position).getCourseId();
+                user.CourcePostion = item;
+
+
+                Intent intent = new Intent(v.getContext(), ScheduleQuizList.class);
+                intent.putExtra("item", user);
+
+                intent.putExtra("prevpage","scheduleQuiz");
+                v.getContext().startActivity(intent);
+            }
+
 
         }
 

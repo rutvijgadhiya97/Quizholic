@@ -23,12 +23,12 @@ import java.util.ArrayList;
 public class ScorePage extends AppCompatActivity implements View.OnClickListener {
     TextView TotalScore;
 
-    Button btn_report,btn_home;
+    Button btn_report,btn_home,Btn_classReport;
     User Userinfo=new User();
     ArrayList<Questions> questions=new ArrayList<>();
     int score=0;
     int totalScore=0;
-
+    ListQuestions lques=new ListQuestions();
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,8 @@ public class ScorePage extends AppCompatActivity implements View.OnClickListener
         btn_report.setOnClickListener(this);
         btn_home.setOnClickListener(this);
         TotalScore=(TextView) findViewById(R.id.Quiz_score);
+        Btn_classReport=(Button)findViewById(R.id.ClassReport_button);
+        Btn_classReport.setOnClickListener(this);
         for(Questions q :questions)
         {
             if(q.getUserans().equals(q.getCorrectans()))
@@ -52,7 +54,7 @@ public class ScorePage extends AppCompatActivity implements View.OnClickListener
         }
 
         TotalScore.setText(String.valueOf(score)+"/"+String.valueOf(totalScore));
-        ListQuestions lques=new ListQuestions();
+        lques=new ListQuestions();
         for(ListQuestions lq:Userinfo.LstQuestions)
         {
             if(lq.CourseName.equals(questions.get(0).getSelectedCourse()) && lq.QuizTitle.equals(questions.get(0).getQuiztitle()))
@@ -74,6 +76,15 @@ public class ScorePage extends AppCompatActivity implements View.OnClickListener
 
                     }
                 });
+        FirebaseDatabase.getInstance().getReference("CourseScores")
+                .child(lques.lstQuestion.get(0).getSelectedCourse().trim()).child(lques.QuizTitle)
+                .child(Userinfo.UserID)
+                .setValue(score).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                    }
+                });
 
     }
 
@@ -90,6 +101,13 @@ public class ScorePage extends AppCompatActivity implements View.OnClickListener
                 Intent intent1 = new Intent(getApplicationContext(), StudentDashboard.class);
                 intent1.putExtra("User", Userinfo);
                 startActivity(intent1);
+
+                break;
+            case R.id.ClassReport_button:
+                Intent intent2 = new Intent(getApplicationContext(), viewClassReport.class);
+                intent2.putExtra("User", Userinfo);
+                intent2.putExtra("questions", lques);
+                startActivity(intent2);
 
                 break;
 

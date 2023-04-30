@@ -1,5 +1,6 @@
 package com.example.quizholic;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -10,11 +11,17 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class StudentDashboard extends AppCompatActivity implements View.OnClickListener{
     public CardView takeQuiz,updateCourse,viewProgress,announcement;
     public User userinfo=new User();
     public Button btn_logout;
+    private DatabaseReference userlistReference;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +40,23 @@ public class StudentDashboard extends AppCompatActivity implements View.OnClickL
         updateCourse.setOnClickListener(this);
         viewProgress.setOnClickListener(this);
         announcement.setOnClickListener(this);
+        userlistReference = FirebaseDatabase.getInstance().getReference("Users");
+        userlistReference.child(userinfo.UserID).child("announce")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot postSnapshot : snapshot.getChildren()) {
 
+                            Notify notiy = postSnapshot.getValue(Notify.class);
+                            userinfo.AnnouncmentList.add(notiy);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
     }

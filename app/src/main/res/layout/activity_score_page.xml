@@ -32,10 +32,10 @@
             android:textSize="90dp"
             android:textStyle="bold" />
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:id="@+id/Button_quiz"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="16dp">
 
@@ -43,21 +43,33 @@
                 android:id="@+id/report_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View Report"
-                android:textColor="#ffffff"
-                android:backgroundTint="#0ED6B9"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#0ED6B9"
+                android:text="View Report"
+                android:textColor="#ffffff" />
+
             <Button
                 android:id="@+id/Home_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Home"
-                android:backgroundTint="#0ED6B9"
-                android:textColor="#ffffff"
-                android:layout_marginLeft="120dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#0ED6B9"
+                android:text="Home"
+                android:textColor="#ffffff" />
+
         </LinearLayout>
+        <Button
+            android:id="@+id/ClassReport_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Class Report"
+            android:backgroundTint="#0ED6B9"
+            android:textColor="#ffffff"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

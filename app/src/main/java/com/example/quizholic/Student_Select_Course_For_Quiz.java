@@ -20,12 +20,27 @@ public class Student_Select_Course_For_Quiz extends AppCompatActivity {
         String prevPage= getIntent().getStringExtra("previousPage");
 
          ArrayList<ListCourseName> lstcourse=new ArrayList<>();
-        for(Course c : userinfo.CourseInfo)
+        if(userinfo.Role.equals("Professor"))
         {
+
+            for(Course c : userinfo.CourseInfo)
+            {
+
+
+                    lstcourse.add(new ListCourseName(c.CoursesId));
+
+            }
+
+        }
+        else{
+         for(Course c : userinfo.CourseInfo)
+        {
+
             if(c.approvalflag)
             {
                 lstcourse.add(new ListCourseName(c.CoursesId));
             }
+        }
         }
 
         StudentCourseQuizAdapter scourseAdapter = new StudentCourseQuizAdapter(this,lstcourse,userinfo,prevPage);

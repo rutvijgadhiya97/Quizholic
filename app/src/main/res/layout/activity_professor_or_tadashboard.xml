@@ -102,8 +102,8 @@
 
         <LinearLayout
         android:id="@+id/cd_2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="162dp"
         tools:layout_editor_absoluteY="-170dp">
@@ -158,5 +158,40 @@
             </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+        <LinearLayout
+            android:id="@+id/cd_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="162dp"
+            tools:layout_editor_absoluteY="-170dp">
+
+
+
+            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/Schedulequiz"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="42dp"
+                android:layout_marginTop="40dp"
+                card_view:cardBackgroundColor="@color/teal_200"
+                card_view:cardCornerRadius="30dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="55dp"
+                        android:text="Schedule quiz"
+                        android:textAlignment="center" />
+
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

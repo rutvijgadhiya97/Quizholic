@@ -123,25 +123,40 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         // Initialize string builder
-                        StringBuilder stringBuilder = new StringBuilder();
-                        // use for loop
-                        for (int j = 0; j < courseList.size(); j++) {
-                            // concat array value
-                            stringBuilder.append(courseslst[courseList.get(j)]);
-                            Course cinfo=new Course(courseslst[courseList.get(j)],false,fName.getText().toString(),userId.getText().toString());
-                            CourseInfo.add(cinfo);
-                            // check condition
-                            if (j != courseList.size() - 1) {
-                                // When j value  not equal
-                                // to lang list size - 1
-                                // add comma
-                                stringBuilder.append(", ");
+                        if(radioButton.getText().toString().trim().equals("TA"))
+                        {
+                            if (courseList.size() == 1)
+                            {
+
+                            }
+                            else {
+                                Toast.makeText(RegisterUser.this,"There can be only one Course for TA.",Toast.LENGTH_LONG).show();
+                                return;
                             }
                         }
-                        // set text on textView
-                        textView.setText(stringBuilder.toString());
-                        Selectedcourse=stringBuilder.toString();
-                    }
+
+                            StringBuilder stringBuilder = new StringBuilder();
+                            // use for loop
+                            for (int j = 0; j < courseList.size(); j++) {
+                                // concat array value
+                                stringBuilder.append(courseslst[courseList.get(j)]);
+                                Course cinfo = new Course(courseslst[courseList.get(j)], false, fName.getText().toString(), userId.getText().toString());
+                                CourseInfo.add(cinfo);
+                                // check condition
+                                if (j != courseList.size() - 1) {
+                                    // When j value  not equal
+                                    // to lang list size - 1
+                                    // add comma
+                                    stringBuilder.append(", ");
+                                }
+                            }
+                            // set text on textView
+                            textView.setText(stringBuilder.toString());
+                            Selectedcourse = stringBuilder.toString();
+                        }
+
+
+
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -326,6 +341,22 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                                                     } else {
                                                         Toast.makeText(RegisterUser.this, "Failed to register! Try again!.", Toast.LENGTH_LONG).show();
                                                         pgrBar.setVisibility(View.GONE);
+                                                    }
+                                                }
+                                            });
+                                }
+                            }
+                            if(role.equals("Professor")){
+                                for (int i = 0; i < CourseInfo.size(); i++) {
+                                    FirebaseDatabase.getInstance().getReference("CoursesTakenBy")
+                                            .child(CourseInfo.get(i).CoursesId).setValue(UserID)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+
+                                                    } else {
+
                                                     }
                                                 }
                                             });

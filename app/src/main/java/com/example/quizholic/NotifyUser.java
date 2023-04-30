@@ -147,8 +147,8 @@ public class NotifyUser extends AppCompatActivity implements AdapterView.OnItemS
                        userlist.AnnouncmentList.add(new Notify(c.CoursesId,announcetext,date,subjecttext));
                    }
                     FirebaseDatabase.getInstance().getReference("Users")
-                            .child(c.UserId)
-                            .setValue(userlist).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            .child(c.UserId).child("announce")
+                            .setValue(userlist.AnnouncmentList).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     Toast.makeText(NotifyUser.this,"Announcement published successfully",Toast.LENGTH_LONG).show();

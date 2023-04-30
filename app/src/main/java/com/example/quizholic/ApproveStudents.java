@@ -127,6 +127,8 @@ public class ApproveStudents extends AppCompatActivity implements AdapterView.On
 
                         }
                         ApproveUser(CourseInfo_Approve);
+                        Toast.makeText(ApproveStudents.this,"Student Approved.",Toast.LENGTH_LONG).show();
+
                         // set text on textView
 
 
@@ -263,7 +265,7 @@ public class ApproveStudents extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onClick(View v) {
-        Intent intent1 = new Intent(getApplicationContext(), StudentDashboard.class);
+        Intent intent1 = new Intent(getApplicationContext(), ProfessorOrTADashboard.class);
         intent1.putExtra("User", userinfo);
         startActivity(intent1);
     }

@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView register;
+    private TextView register,forgetpassword;
     private EditText _editUserId,_editPassword;
     private Button signIn;
 
@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);
+        forgetpassword=(TextView)findViewById(R.id.forgetpassword);
+        forgetpassword.setOnClickListener(this);
 
         signIn=(Button) findViewById(R.id.signIn);
         signIn.setOnClickListener(this);
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, RegisterUser.class));
                 break;
             case R.id.forgetpassword:
-                //startActivity(new Intent(this, RegisterUser.class));
+                startActivity(new Intent(this, ResetPassword.class));
                 break;
             case R.id.signIn:
                 userLogin();
@@ -132,19 +134,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     User userlist = snapshot.getValue(User.class);
+
                                     switch (role) {
                                         case "Student":
+
                                             Intent intent1 = new Intent(getApplicationContext(), StudentDashboard.class);
                                             intent1.putExtra("User", userlist);
                                             startActivity(intent1);
                                             break;
                                         case "Professor":
+                                        case "TA":
                                             Intent intent = new Intent(getApplicationContext(), ProfessorOrTADashboard.class);
                                             intent.putExtra("User", userlist);
                                             startActivity(intent);
                                             break;
-                                        case "TA":
-                                            break;
+
                                     }
                                 }
 

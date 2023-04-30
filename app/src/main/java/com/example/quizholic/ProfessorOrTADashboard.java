@@ -12,7 +12,7 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfessorOrTADashboard extends AppCompatActivity implements View.OnClickListener {
-    public CardView questions,approveStudents,updateCourse,notifyUser;
+    public CardView questions,approveStudents,updateCourse,notifyUser,scheduleQuiz;
     public Button btn_logout;
     public User userinfo=new User();
     @SuppressLint("MissingInflatedId")
@@ -25,13 +25,19 @@ public class ProfessorOrTADashboard extends AppCompatActivity implements View.On
         updateCourse=(CardView)findViewById(R.id.UpdateCourseList);
         notifyUser=(CardView)findViewById(R.id.Notify_for_quiz);
         btn_logout=(Button)findViewById(R.id.Logout);
+        scheduleQuiz=(CardView)findViewById(R.id.Schedulequiz);
+
          userinfo=(User) getIntent().getSerializableExtra("User");
         questions.setOnClickListener(this);
         approveStudents.setOnClickListener(this);
         updateCourse.setOnClickListener((this));
         notifyUser.setOnClickListener(this);
         btn_logout.setOnClickListener(this);
-
+        scheduleQuiz.setOnClickListener(this);
+        if(userinfo.Role.equals("TA"))
+        {
+            scheduleQuiz.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -63,6 +69,12 @@ public class ProfessorOrTADashboard extends AppCompatActivity implements View.On
                 mAuth.signOut();
                 startActivity(new Intent(this, MainActivity.class));
 
+                break;
+            case R.id.Schedulequiz:
+                Intent intent4 = new Intent(getApplicationContext(), Student_Select_Course_For_Quiz.class);
+                intent4.putExtra("User", userinfo);
+                intent4.putExtra("previousPage", "scheduleQuiz");
+                startActivity(intent4);
                 break;
 
         }
